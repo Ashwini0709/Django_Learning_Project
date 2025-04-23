@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import Notes
 from django.http import Http404
-from django.views.generic import DetailView, ListView
+from django.views.generic import CreateView, UpdateView, DetailView, ListView
+from .forms import NotesForm
+from django.views.generic.edit import DeleteView
 
 # Create your views here.
 
@@ -21,8 +23,22 @@ class PopularLikesListView(ListView):
     template_name = "notes/notes_list.html"
     queryset = Notes.objects.filter(likes__gte=2)
 
+class NotesCreateView(CreateView):
+    model = Notes
+    success_url = '/smart/notes'
+    template_name = "notes/notes_form.html"
+    form_class = NotesForm
 
+class NotesUpdateView(UpdateView):
+    model = Notes
+    success_url = '/smart/notes'
+    template_name = "notes/notes_form.html"
+    form_class = NotesForm
 
+class NotesDeleteView(DeleteView):
+    model = Notes
+    success_url = '/smart/notes'
+    template_name = "notes/notes_delete.html"
 
 
 """
