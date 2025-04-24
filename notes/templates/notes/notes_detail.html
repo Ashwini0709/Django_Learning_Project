@@ -2,17 +2,28 @@
 
 
 {% block content %}
+<div class="p-3 border"> 
     <h1>{{note.title}}</h1>
 
-    <p class="note-li">
+    <p>
         {{note.text}}
     </p>
 
-    
-    <a href="{% url 'notes.list'%}" class="btn btn-secondary">Back</a>
-    <a href="{% url 'notes.update' pk=note.id %}" class="btn btn-secondary">Edit</a>
-    <a href="{% url 'notes.delete' pk=note.id %}" class="btn btn-secondary">Delete</a>
+</div>
+<div>
+    <p>{{note.likes}} likes</p>
+</div>
+<div>   
+    <form action="{% url 'notes.add_like' pk=note.id %}" method="post" class="d-inline">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary my-5" >Upvote</button>
 
+    </form>
+    
+    <a href="{% url 'notes.list'%}" class="btn btn-secondary my-5">Back</a>
+    <a href="{% url 'notes.update' pk=note.id %}" class="btn btn-info ">Edit</a>
+    <a href="{% url 'notes.delete' pk=note.id %}" class="btn btn-warning">Delete</a>
+</div> 
 {% endblock %}
 
 

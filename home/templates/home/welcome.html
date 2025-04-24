@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <header><title>SmartNotes</title></header>
-
-    <body>Welcome to SmartNotes</body>
+    
+<div>
+    <h1>Welcome to SmartNotes</h1>
     <p> Today is {{today}}</p>
-    <a href="{% url 'notes.list' %}"> Check out some smart notes! </a>
-
+    <a href="{% url 'notes.list' %}" class="btn btn-primary"> Check out some smart notes! </a>
+</div>
+<br/>
+<div>
     <h2> Some Advantages of Django :</h2>
     {% include "home/advantages.html" %}
+</div>
 
 {% endblock %}

@@ -5,12 +5,12 @@
 
 <form method="post">{% csrf_token %} 
     {{ form }}
-    <button type="submit" >Submit</button>
-    <button type="submit" class="danger">Cancel</button>
+    <button type="submit" class="btn btn-primary my-5">Submit</button>
+    <button type="submit" class="btn btn-danger my-5">Cancel</button>
 </form>
 
 {% if form.errors %}
-<div class="alert">
+<div class="alert alert-danger my-5">
     {{form.errors.title.as_text}}
 </div>
 {% endif %}

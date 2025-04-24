@@ -8,15 +8,16 @@ class NotesForm(forms.ModelForm):
         model = Notes
         fields = ('title', 'text')
         widgets = {
-            'title' : forms.TextInput(attrs={'class': 'form-control'}),
+            'title' : forms.TextInput(attrs={'class': 'form-control mb-5'}),
             'text' : forms.Textarea(attrs={'class': 'form-control'})
         }
         labels = {
             'text' : 'Write your thoughts here'
         }
 
-    def clean_title(self):
-        title = self.cleaned_data['title']
-        if 'Django' not in title:
-            raise ValidationError('We only accept notes about Django')
-        return title
+    #def clean_title(self):
+    #    title = self.cleaned_data['title']
+    #    if 'Django' not in title:
+    #        raise ValidationError('We only accept notes about Django')
+    #   return title
+        
