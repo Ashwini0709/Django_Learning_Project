@@ -9,7 +9,7 @@
     {% if user.is_authenticated %}
         <a href="{% url 'notes.list' %}" class="btn btn-primary"> Check out some smart notes! </a>
     {% else %}
-        <a href="{% url 'login' %}" class="btn btn-primary"> Check out some smart notes! </a>
+        <a href="{% url 'notes.show_public_notes' %}" class="btn btn-primary"> Check out some smart notes! </a>
     {% endif %}
 </div>
 <br/>
