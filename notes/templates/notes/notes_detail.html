@@ -3,20 +3,38 @@
 
 {% block content %}
 <div class="p-3 border"> 
-    <h1>{{note.title}}</h1>
+    <h1 class="my-5">{{note.title}} 
+        {% if note.is_public %}
+        <span class="badge bg-primary">
+             Public 
+        </span>
+        {% endif %}
+    </h1>
 
     <p>
         {{note.text}}
     </p>
 
 </div>
-<div>
+<div class="my-3">
     <p>{{note.likes}} likes</p>
 </div>
 <div>   
     <form action="{% url 'notes.add_like' pk=note.id %}" method="post" class="d-inline">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary my-5" >Upvote</button>
+
+    </form>
+    <form action="{% url 'notes.change_visibility' pk=note.id %}" method="post" class="d-inline">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-secondary my-5" >
+            {% if note.is_public %}
+                Make it Private
+            {% else %}
+                Make it Public 
+            {% endif %}
+
+        </button>
 
     </form>
     
