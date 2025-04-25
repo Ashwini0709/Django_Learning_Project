@@ -24,6 +24,11 @@ class DetailListView(DetailView):
     model = Notes
     context_object_name = "note"
 
+class NotesPublicView(DetailView):
+    model = Notes
+    context_object_name = "note"
+    queryset = Notes.objects.filter(is_public=True) 
+
 class PopularLikesListView(ListView):
     model = Notes
     context_object_name = "notes"

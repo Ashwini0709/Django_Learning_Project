@@ -5,12 +5,22 @@
 <div>
     <h1>Welcome to SmartNotes</h1>
     <p> Today is {{today}}</p>
-    <a href="{% url 'notes.list' %}" class="btn btn-primary"> Check out some smart notes! </a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'notes.list' %}" class="btn btn-primary"> Check out some smart notes! </a>
+    {% else %}
+        <a href="{% url 'login' %}" class="btn btn-primary"> Check out some smart notes! </a>
+    {% endif %}
 </div>
 <br/>
+
+<!--
+    Below code to see How "include" function works in Django
+    
 <div>
     <h2> Some Advantages of Django :</h2>
     {% include "home/advantages.html" %}
 </div>
 
+-->
 {% endblock %}
