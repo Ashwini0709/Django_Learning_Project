@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="my-5"> These are the public notes : </h1>
+
+    <div class="row row=cols3 g-2">
+        {% for note in notes %}
+            {% if note.is_public %}
+            <div class="col" >
+                <div class="p-3 border h-100">
+                    
+                    <a href="{% url 'notes.detail' pk=note.id %}" class="text-dark text-decoration-non ">
+                        <h3>{{note.title}}</h3>
+                    </a>
+                    {{note.text|truncatechars:10}}
+
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+    <div class="my-5">
+    <h4><a href="{% url 'login' %}" class="link-offset-1" >Login</a> to see your personalised notes</h4>
+    </div>
+    
+    
+   
+
+{% endblock %}

@@ -74,7 +74,10 @@ def change_visibility_view(request, pk):
         return HttpResponseRedirect(reverse('notes.detail', args=(pk,)))
     raise Http404
 
-
+class ShowPublicNotesListView(ListView):
+    model = Notes
+    context_object_name = "notes"
+    template_name = "notes/notes_public.html"
 
 """
 These are function based views
