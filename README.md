@@ -27,22 +27,23 @@ SmartNotes is a Django-based web application that allows users to create, manage
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/smartnotes.git
+   git clone https://github.com/Ashwini0709/smartnotes.git
    cd smartnotes
 
 2. Create and activate a virtual environment:
+   ```bash
     python -m venv env
     source env/bin/activate  # On Windows use `env\Scripts\activate`
 
-3. Install dependencies:
-    pip install django
-
-4. Apply migrations:
+3. Apply migrations:
+   ```bash
+    python manage.py makemigrations
     python manage.py migrate
    
-5. Run the development server:
+4. Run the development server:
+   ```bash
     python manage.py runserver
 
-6. Visit http://127.0.0.1:8000/ in your browser to start using SmartNotes.
+5. Visit http://127.0.0.1:8000/ in your browser to start using SmartNotes.
 
 
